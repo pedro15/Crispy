@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Crispy.AI\Crispy.AI.csproj" />
+    <ProjectReference Include="..\Crispy.Core\Crispy.Core.csproj" />
+    <ProjectReference Include="..\Crispy.Client\Crispy.Client.csproj" />
+  </ItemGroup>
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <AssemblyName>Crispy</AssemblyName>
+  </PropertyGroup>
+</Project>
