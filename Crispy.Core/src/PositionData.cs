@@ -1,6 +1,6 @@
 namespace Crispy.Core
 {
-    public struct BoardPositionData 
+    public struct PositionData 
     {
         public ulong[] bitboards;
         public CastlingRights castlingRights;
@@ -9,7 +9,7 @@ namespace Crispy.Core
         public ulong hash;
         public uint pawn_hash;
         
-        public BoardPositionData Copy()
+        public PositionData Copy()
         {
             ulong[] cpy_bitboards = new ulong[bitboards.Length];
             System.Array.Copy(bitboards,cpy_bitboards, cpy_bitboards.Length);
@@ -20,7 +20,7 @@ namespace Crispy.Core
             ulong cpy_hash = hash;
             uint cpy_pawn_hash = pawn_hash;
 
-            return new BoardPositionData()
+            return new PositionData()
             {
                 bitboards = cpy_bitboards,
                 castlingRights = cpy_castling,

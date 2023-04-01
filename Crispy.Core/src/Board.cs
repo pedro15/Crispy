@@ -6,16 +6,16 @@ namespace Crispy.Core
 {
     public sealed class Board 
     {
-        public BoardPositionData position {get; private set; }
-        private BoardPositionData[] history;
+        public PositionData position {get; private set;}
+        private PositionData[] history;
         private int history_index = -1;
 
         public Board()
         {
-            
+
         }
         
-        public void SetPosition(BoardPositionData new_position)
+        public void SetPosition(PositionData new_position)
         {
             position = new_position;
             // Clear history
@@ -32,6 +32,5 @@ namespace Crispy.Core
         {
 
         }
-
     }
 }

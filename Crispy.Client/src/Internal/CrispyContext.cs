@@ -2,16 +2,14 @@ using System.Collections.Generic;
 
 namespace Crispy.Client.Internal
 {
-    internal sealed class CrispyContext : ContextBase
+    internal sealed class CrispyContext : ContextBase<CrispyContext>
     {
-        public override void Initialize()
+        internal override ICommand<CrispyContext>[] GetCommands()
         {
-            
-        }
-
-        public override void Run()
-        {
-
+            return new ICommand<CrispyContext>[] 
+            {
+                
+            };
         }
     }
 }
