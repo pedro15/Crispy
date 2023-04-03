@@ -47,7 +47,7 @@ namespace Crispy.Client.Internal
             builder.AppendLine();
             builder.Append($"Developed by {AUTHORS}");
             builder.AppendLine();
-            builder.Append("Licensed under 'Mozzila Public License v2.0' More license information at: http://mozilla.org/MPL/2.0");
+            builder.Append("Licensed under Mozzila Public License v2.0");
             builder.AppendLine();
             builder.Append($"Project Homepage and source code: {HOMEPAGE}");
             builder.AppendLine();
