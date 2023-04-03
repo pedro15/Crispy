@@ -1,4 +1,5 @@
 using Crispy.Client.Internal;
+using System.Linq;
 
 namespace Crispy.Client
 {
@@ -10,6 +11,7 @@ namespace Crispy.Client
         public EngineClient(IClientIOHandler iOHandler,string[] args)
         {
             crispyContext = new CrispyContext();
+            crispyContext.slientMode = args.Any((a) => a == "-s");
             crispyContext.Initialize(iOHandler);
         }
         
