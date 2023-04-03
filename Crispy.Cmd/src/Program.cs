@@ -1,16 +1,30 @@
 ﻿using System;
 using Crispy.Client;
+using System.Threading.Tasks;
 
 namespace Crispy.Cmd
 {
     public static class Program 
     {
-        public static int Main(string[] args)
+        static int Main(string[] args)
         {
-            Console.WriteLine("Hello, world!");
-            Console.WriteLine(typeof(CrispyClient).AssemblyQualifiedName);
-            Console.Read();
+            Task mainTask = MainAsync(args);
+            mainTask.Wait();
+
             return 0;
         }
+
+        static async Task MainAsync(string[] args)
+        {
+            EngineClient client = new EngineClient(new ConsoleIOHandler() , args);
+            client.Run(true);
+
+            while(client.IsRunning)
+            {
+                await Task.Delay(1);
+            }
+        }
+
+
     }
 }

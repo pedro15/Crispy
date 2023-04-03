@@ -12,7 +12,7 @@ namespace Crispy.Core
 
         public Board()
         {
-
+        
         }
         
         public void SetPosition(PositionData new_position)
@@ -25,7 +25,7 @@ namespace Crispy.Core
 
         public void MakeMove()
         {
-
+            
         }
 
         public void UndoLastMove()
