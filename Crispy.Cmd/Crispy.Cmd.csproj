@@ -17,6 +17,5 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
 	  <Optimize>true</Optimize>
-    <PublishSingleFile>true</PublishSingleFile>
   </PropertyGroup>
 </Project>
