@@ -1,4 +1,4 @@
-<img src="Resources/logo.png" style="max-width: 300px;"/>
+<img src="Resources/logo.png" width = "300px"/>
 
 ## Crispy - UCI chess engine
 UCI chess engine with focus on balance between clean code and strength
