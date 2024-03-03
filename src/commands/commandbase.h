@@ -1,7 +1,7 @@
 #pragma once
-#include "../uci.h"
 #include <string>
 #include <vector>
+#include "../uci.h"
 
 class commandbase
 {

@@ -6,4 +6,4 @@ const char* ENGINE_HEADER =
 "( (_   |   /  | | \\\\_  |  _/  \\ /  \n"  
 " \\__|  |_| \\  |_| /__/ |_|    |_|  \n";
 
-const char* ENGINE_VERSION = "v0.5";
+const char* ENGINE_VERSION = "0.5";
