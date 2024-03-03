@@ -1,3 +1,5 @@
+#pragma once
+
 const char* ENGINE_HEADER = 
 "  __    ___    _   __   ___  __ __  \n" 
 " / _|  | o \\  | | / _| | o | \\ V / \n" 

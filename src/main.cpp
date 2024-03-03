@@ -1,6 +1,7 @@
 #include <iostream>
 #include "types.h"
 #include "uci.h"
+#include "commands/helpcommand.h"
 
 int main(int argc, char* argv[])
 {
@@ -9,6 +10,9 @@ int main(int argc, char* argv[])
 
     uci uci_loop = uci();
     uci_loop.Run();
+
+    helpcommand help_command = helpcommand(uci_loop);
+    help_command.Execute(std::vector<std::string>());
     
     std::cin.get();
     return 0;   
