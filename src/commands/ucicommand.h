@@ -1,5 +1,7 @@
 #include "uci.h"
 #include <string>
+#include <vector>
+
 class ucicommand
 {
 private:
@@ -7,5 +9,5 @@ private:
 public:
     ucicommand(uci &uci_client_);
     ~ucicommand();
-    virtual void Execute(const std::string args[]);
+    virtual void Execute(const std::vector<std::string> args);
 };
