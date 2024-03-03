@@ -1,7 +1,7 @@
 class uci
 {
-    private:
-    public:
+private:
+public:
     uci();
     ~uci();
     void Run();
