@@ -2,12 +2,10 @@
 #include "../uci.h"
 #include "commandbase.h"
 
-class helpcommand : commandbase
+class helpcommand : public commandbase
 {
-private:
-
 public:
-    helpcommand(uci &uci_client);
+    helpcommand(uci* uci_client);
     ~helpcommand();
     void Execute(const std::vector<std::string> args) override;
 };
