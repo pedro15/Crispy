@@ -1,19 +1,19 @@
 #include<iostream>
 #include<vector>
 #include "Uci.h"
-#include "commands/commandbase.h"
-#include "commands/helpcommand.h"
+#include "commands/CommandBase.h"
+#include "commands/HelpCommand.h"
 
 Uci::Uci() 
 { 
-    commands_ = { new HelpCommand(this) };
+    commands = { new HelpCommand(this) };
 }
 Uci::~Uci(){ }
 void Uci::Run()
 {
-    if (is_running) return;
-    is_running = true;
-    while (is_running)
+    if (isRunning) return;
+    isRunning = true;
+    while (isRunning)
     {
         
     }   
@@ -21,6 +21,6 @@ void Uci::Run()
 
 void Uci::Stop()
 {
-    if (!is_running) return;
-    is_running = false;
+    if (!isRunning) return;
+    isRunning = false;
 }

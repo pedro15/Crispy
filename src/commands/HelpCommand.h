@@ -1,5 +1,5 @@
 #pragma once
-#include "../uci.h"
+#include "../Uci.h"
 #include "CommandBase.h"
 
 class HelpCommand : public CommandBase

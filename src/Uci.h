@@ -1,13 +1,13 @@
 #pragma once
 #include <vector>
-#include "commands/commandbase.h"
+#include "commands/CommandBase.h"
 
 class CommandBase;
 class Uci
 {
 private:
-    bool is_running;
-    std::vector<CommandBase*> commands_;
+    bool isRunning;
+    std::vector<CommandBase*> commands;
 public:
     Uci();
     ~Uci();

@@ -1,13 +1,13 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "../uci.h"
+#include "../Uci.h"
 
 class Uci;
 class CommandBase
 {
 protected:
-    Uci* uci_client_;
+    Uci* uciClient;
 public:
     CommandBase(Uci* uci_client);
     ~CommandBase();
