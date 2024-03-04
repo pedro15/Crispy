@@ -7,6 +7,7 @@
 Uci::Uci() 
 { 
     commands = { new HelpCommand(this) };
+    is_running = false;
 }
 Uci::~Uci(){ }
 void Uci::Run()
