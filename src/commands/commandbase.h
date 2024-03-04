@@ -3,13 +3,13 @@
 #include <vector>
 #include "../uci.h"
 
-class uci;
-class commandbase
+class Uci;
+class CommandBase
 {
 protected:
-    uci* uci_client_;
+    Uci* uci_client_;
 public:
-    commandbase(uci* uci_client);
-    ~commandbase();
+    CommandBase(Uci* uci_client);
+    ~CommandBase();
     virtual void Execute(const std::vector<std::string> args);
 };

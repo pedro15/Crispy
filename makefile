@@ -2,7 +2,7 @@ OUTPUT = Crispy.exe
 FLAGS_GLOBAL = -std=c++20
 FLAGS_RELEASE = -O3
 FLAGS_DEBUG = -g
-SOURCES = src/main.cpp src/uci.cpp src/commands/commandbase.cpp src/commands/helpcommand.cpp
+SOURCES = src/Main.cpp src/Uci.cpp src/commands/CommandBase.cpp src/commands/HelpCommand.cpp
 
 build:
 	g++ $(SOURCES) $(FLAGS_GLOBAL) $(FLAGS_RELEASE) -o $(OUTPUT)

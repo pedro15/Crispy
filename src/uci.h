@@ -2,15 +2,15 @@
 #include <vector>
 #include "commands/commandbase.h"
 
-class commandbase;
-class uci
+class CommandBase;
+class Uci
 {
 private:
     bool is_running;
-    std::vector<commandbase*> commands_;
+    std::vector<CommandBase*> commands_;
 public:
-    uci();
-    ~uci();
+    Uci();
+    ~Uci();
     void Run();
     void Stop();
 };

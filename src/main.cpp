@@ -1,6 +1,6 @@
 #include <iostream>
-#include "types.h"
-#include "uci.h"
+#include "Types.h"
+#include "Uci.h"
 
 int main(int argc, char* argv[])
 {
@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
     std::cout << "Version: " << ENGINE_VERSION << std::endl;
     std::cout << "Type 'help' to display available commands" << std::endl << std::endl;
 
-    uci uci_loop = uci();
+    Uci uci_loop = Uci();
     uci_loop.Run();
     
     std::cin.get();

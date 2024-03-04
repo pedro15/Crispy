@@ -1,10 +1,10 @@
 #include <iostream>
-#include "helpcommand.h"
+#include "HelpCommand.h"
 
-helpcommand::helpcommand(uci* uci_client) : commandbase(uci_client) { }
-helpcommand::~helpcommand(){ }
+HelpCommand::HelpCommand(Uci* uci_client) : CommandBase(uci_client) { }
+HelpCommand::~HelpCommand(){ }
 
-void helpcommand::Execute(const std::vector<std::string> args)
+void HelpCommand::Execute(const std::vector<std::string> args)
 {
     std::cout << "Hello i'm help command!" << std::endl; 
 }

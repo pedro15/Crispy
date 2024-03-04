@@ -1,5 +1,5 @@
-#include "commandbase.h"
+#include "CommandBase.h"
 
-commandbase::commandbase(uci* uci_client) : uci_client_(uci_client){ }
-commandbase::~commandbase() { }
-void commandbase::Execute(const std::vector<std::string> args){ }
+CommandBase::CommandBase(Uci* uci_client) : uci_client_(uci_client){ }
+CommandBase::~CommandBase() { }
+void CommandBase::Execute(const std::vector<std::string> args){ }
