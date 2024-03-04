@@ -6,7 +6,7 @@ class CommandBase;
 class Uci
 {
 private:
-    bool isRunning;
+    bool is_running;
     std::vector<CommandBase*> commands;
 public:
     Uci();

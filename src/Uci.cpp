@@ -11,9 +11,9 @@ Uci::Uci()
 Uci::~Uci(){ }
 void Uci::Run()
 {
-    if (isRunning) return;
-    isRunning = true;
-    while (isRunning)
+    if (is_running) return;
+    is_running = true;
+    while (is_running)
     {
         
     }   
@@ -21,6 +21,6 @@ void Uci::Run()
 
 void Uci::Stop()
 {
-    if (!isRunning) return;
-    isRunning = false;
+    if (!is_running) return;
+    is_running = false;
 }

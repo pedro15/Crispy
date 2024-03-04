@@ -7,9 +7,9 @@ class Uci;
 class CommandBase
 {
 protected:
-    Uci* uciClient;
+    Uci* uci_client;
 public:
-    CommandBase(Uci* uci_client);
+    CommandBase(Uci* uciClient);
     ~CommandBase();
     virtual void Execute(const std::vector<std::string> args);
 };

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "HelpCommand.h"
 
-HelpCommand::HelpCommand(Uci* uci_client) : CommandBase(uci_client) { }
+HelpCommand::HelpCommand(Uci* uciClient) : CommandBase(uciClient) { }
 HelpCommand::~HelpCommand(){ }
 
 void HelpCommand::Execute(const std::vector<std::string> args)
