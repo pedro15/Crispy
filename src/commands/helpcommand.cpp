@@ -7,5 +7,4 @@ helpcommand::~helpcommand(){ }
 void helpcommand::Execute(const std::vector<std::string> args)
 {
     std::cout << "Hello i'm help command!" << std::endl; 
-    uci_client_->SayHello();
 }
