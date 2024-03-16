@@ -3,14 +3,14 @@
 #include "commands/CommandBase.h"
 
 class CommandBase;
-class Uci
+class UciClient
 {
 private:
-    bool is_running;
-    std::vector<CommandBase*> commands;
+    bool m_isRunning;
+    std::vector<CommandBase*> m_commands;
 public:
-    Uci();
-    ~Uci();
+    UciClient();
+    ~UciClient();
     void Run();
     void Stop();
 };

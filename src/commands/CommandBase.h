@@ -1,15 +1,15 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "../Uci.h"
+#include "../UciClient.h"
 
-class Uci;
+class UciClient;
 class CommandBase
 {
 protected:
-    Uci* uci_client;
+    UciClient* m_uciClient;
 public:
-    CommandBase(Uci* uciClient);
+    CommandBase(UciClient* uciClient);
     ~CommandBase();
     virtual void Execute(const std::vector<std::string> args);
 };

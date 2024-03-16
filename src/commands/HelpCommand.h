@@ -1,11 +1,11 @@
 #pragma once
-#include "../Uci.h"
+#include "../UciClient.h"
 #include "CommandBase.h"
 
 class HelpCommand : public CommandBase
 {
 public:
-    HelpCommand(Uci* uciClient);
+    HelpCommand(UciClient* uciClient);
     ~HelpCommand();
     void Execute(const std::vector<std::string> args) override;
 };
