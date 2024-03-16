@@ -2,7 +2,7 @@
 #include "Types.h"
 #include "UciClient.h"
 
-int main(int argc, char* argv[])
+int main(int a_count, char* a_values[])
 {
     std::cout << ENGINE_ANCII_ART  << std::endl;
     std::cout << "Version: " << ENGINE_VERSION << std::endl;

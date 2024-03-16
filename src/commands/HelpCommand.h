@@ -5,7 +5,7 @@
 class HelpCommand : public CommandBase
 {
 public:
-    HelpCommand(UciClient* uciClient);
+    HelpCommand(UciClient* a_uci_client);
     ~HelpCommand();
-    void Execute(const std::vector<std::string> args) override;
+    void Execute(const std::vector<std::string> a_params) override;
 };
