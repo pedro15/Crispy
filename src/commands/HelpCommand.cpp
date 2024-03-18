@@ -6,5 +6,6 @@ HelpCommand::~HelpCommand(){ }
 
 void HelpCommand::Execute(const std::vector<std::string> a_params)
 {
-    std::cout << "Hello i'm help command!" << std::endl; 
+    std::cout << "Hello i'm help command!" << std::endl;
+    std::cout << "age is " << GetParamValue<int>(a_params, "age") << std::endl;
 }

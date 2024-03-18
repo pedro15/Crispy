@@ -6,15 +6,33 @@
 
 UciClient::UciClient() 
 { 
-    m_commands = { new HelpCommand(this) };
+    m_commands = { {"help", new HelpCommand(this)} };
     m_isRunning = false;
 }
-
 UciClient::~UciClient(){ }
+
 void UciClient::Run()
 {
     if (m_isRunning) return;
     m_isRunning = true;
+
+    std::string user_input;
+    std::vector<std::string> cmd_line_args;
+
+    while (m_isRunning)
+    {
+        user_input.clear();
+        std::getline(std::cin,user_input);
+        strutil::trim(user_input);
+
+        cmd_line_args.clear();
+        cmd_line_args = strutil::split(user_input, " ");
+        
+        if (cmd_line_args.size() > 0 && m_commands.find(cmd_line_args[0]) != m_commands.end())
+        {
+            m_commands[cmd_line_args[0]]->Execute(cmd_line_args);
+        }
+    }
 }
 
 void UciClient::Stop()
