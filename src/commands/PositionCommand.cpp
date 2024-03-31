@@ -4,7 +4,10 @@ PositionCommand::PositionCommand(UciClient* uci_client) : CommandBase(uci_client
 
 void PositionCommand::Execute(const std::vector<std::string> params)
 {
-    if(std::find(params.begin(), params.end(), "fen") != params.end())
+    auto begin = params.begin();
+    auto end = params.end();
+    
+    if(std::find(begin, end, "fen") != end)
     {
         std::cout << "fen is: '" << GetFEN(params) << "'" << std::endl;
     }else 
