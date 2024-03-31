@@ -11,6 +11,5 @@ int main(int count, char* values[])
     UciClient uci_loop = UciClient();
     uci_loop.Run();
     
-    std::cin.get();
     return 0;   
 }

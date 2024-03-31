@@ -3,10 +3,11 @@
 #include "UciClient.h"
 #include "commands/CommandBase.h"
 #include "commands/HelpCommand.h"
+#include "commands/ExitCommand.h"
 
 UciClient::UciClient() 
 { 
-    m_commands = { {"help", new HelpCommand(this)} };
+    m_commands = { {"help", new HelpCommand(this)}, {"exit", new ExitCommand(this) } };
     m_isRunning = false;
 }
 UciClient::~UciClient(){ }
