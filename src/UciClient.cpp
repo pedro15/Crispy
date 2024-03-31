@@ -1,5 +1,5 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 #include "UciClient.h"
 #include "commands/CommandBase.h"
 #include "commands/HelpCommand.h"

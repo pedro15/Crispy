@@ -10,23 +10,23 @@ class CommandBase
 protected:
     UciClient* m_uci_client;
 public:
-    CommandBase(UciClient* a_uci_client);
+    CommandBase(UciClient* uci_client);
     ~CommandBase();
-    virtual void Execute(const std::vector<std::string> a_params);
+    virtual void Execute(const std::vector<std::string> params);
 };
 
-template<typename T> static T GetParamValue(const std::vector<std::string> a_params, const std::string a_token)
+template<typename T> static T GetParamValue(const std::vector<std::string> params, const std::string token)
 { 
 	T result = T{};
 	int next_index;
-    for (int i = 0; i < a_params.size(); i++)
+    for (int i = 0; i < params.size(); i++)
 	{
-		if (strutil::compare_ignore_case(a_params[i], a_token))
+		if (strutil::compare_ignore_case(params[i], token))
 		{
 			next_index = i + 1;
-			if (next_index < a_params.size())
+			if (next_index < params.size())
 			{
-				std::istringstream(a_params[next_index]) >> result;
+				std::istringstream(params[next_index]) >> result;
 				return result;
 			}
 		}
