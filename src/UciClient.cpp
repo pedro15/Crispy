@@ -5,10 +5,12 @@
 #include "commands/HelpCommand.h"
 #include "commands/QuitCommand.h"
 #include "commands/VersionCommand.h"
+#include "commands/PositionCommand.h"
 
 UciClient::UciClient() 
 { 
-    m_commands = { {"help", new HelpCommand(this)}, {"quit", new QuitCommand(this) }, {"version", new VersionCommand(this)} };
+    m_commands = {  {"help", new HelpCommand(this)}, {"quit", new QuitCommand(this)}, {"version", new VersionCommand(this)},
+                    {"position", new PositionCommand(this)} };
     m_isRunning = false;
 }
 UciClient::~UciClient(){ }

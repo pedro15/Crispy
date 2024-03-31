@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <sstream>
 #include "../UciClient.h"
 #include "../lib/strutil.h"
 
@@ -32,4 +33,24 @@ template<typename T> static T GetParamValue(const std::vector<std::string> param
 		}
 	}
 	return result;
+}
+
+static std::string GetFEN(const std::vector<std::string> params)
+{
+	std::stringstream result;
+	for (int i = 0; i < params.size(); i++)
+	{
+		if (params[i] == "fen" || params[i] == "position")
+		{
+			continue;
+		}else if (params[i] == "moves")
+		{
+			break;
+		}
+
+		result << params[i];
+		if (i < params.size() - 1 && params[i+1] != "moves")
+			result << " ";
+	}
+	return result.str();
 }
