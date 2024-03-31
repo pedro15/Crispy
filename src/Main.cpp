@@ -5,11 +5,11 @@
 int main(int count, char* values[])
 {
     std::cout << ENGINE_ANCII_ART  << std::endl;
-    std::cout << "Version: " << ENGINE_VERSION << std::endl;
-    std::cout << "Type 'help' to display available commands" << std::endl << std::endl;
+    std::cout << ENGINE_VERSION << std::endl;
+    std::cout << "Homepage and source code: " << HOMEPAGE << std::endl;
 
     UciClient uci_loop = UciClient();
     uci_loop.Run();
-    
+
     return 0;   
 }

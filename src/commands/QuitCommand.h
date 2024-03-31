@@ -1,9 +1,9 @@
 #include "CommandBase.h"
 
-class ExitCommand : public CommandBase
+class QuitCommand : public CommandBase
 {
 public:
-    ExitCommand(UciClient* uci_client);
-    ~ExitCommand();
+    QuitCommand(UciClient* uci_client);
+    ~QuitCommand();
     void Execute(const std::vector<std::string> params) override;
 };

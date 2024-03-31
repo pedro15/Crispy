@@ -1,5 +1,6 @@
 #pragma once
 #include "../UciClient.h"
+#include "../Types.h"
 #include "CommandBase.h"
 
 class HelpCommand : public CommandBase
