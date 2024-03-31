@@ -33,6 +33,9 @@ void UciClient::Run()
         if (cmd_line_args.size() > 0 && m_commands.find(cmd_line_args[0]) != m_commands.end())
         {
             m_commands[cmd_line_args[0]]->Execute(cmd_line_args);
+        }else if (!user_input.empty()) 
+        {
+            std::cout << "Command not found" << std::endl;
         }
     }
 }
