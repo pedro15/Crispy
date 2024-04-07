@@ -14,24 +14,24 @@
 UciClient::UciClient() 
 { 
     // internal commands
-    AddCommand("help", new HelpCommand(this));
-    AddCommand("version", new VersionCommand(this));
+    AddCommand("help", std::make_unique<HelpCommand>(this));
+    AddCommand("version", std::make_unique<VersionCommand>(this));
     // uci commands
-    AddCommand("uci", new UciCommand(this));
-    AddCommand("isready", new IsReadyCommand(this));
-    AddCommand("position", new PositionCommand(this));
-    AddCommand("go", new GoCommand(this));
-    AddCommand("stop", new StopCommand(this));
-    AddCommand("quit", new QuitCommand(this));
+    AddCommand("uci", std::make_unique<UciCommand>(this));
+    AddCommand("isready", std::make_unique<IsReadyCommand>(this));
+    AddCommand("position", std::make_unique<PositionCommand>(this));
+    AddCommand("go", std::make_unique<GoCommand>(this));
+    AddCommand("stop", std::make_unique<StopCommand>(this));
+    AddCommand("quit", std::make_unique<QuitCommand>(this));
 
     m_isRunning = false;
     m_abort_requested = false;
 }
 UciClient::~UciClient(){ }
 
-void UciClient::AddCommand(std::string cmd, CommandBase* val)
+void UciClient::AddCommand(std::string cmd, std::unique_ptr<CommandBase> val)
 {
-    m_commands.emplace(std::make_pair(cmd, std::unique_ptr<CommandBase>(val)));
+    m_commands.emplace(std::make_pair(std::move(cmd), std::move(val)));
 }
 
 void UciClient::Run()

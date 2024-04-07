@@ -11,7 +11,7 @@ private:
     bool m_isRunning;
     bool m_abort_requested;
     std::map<std::string,std::unique_ptr<CommandBase>> m_commands;
-    void AddCommand(std::string cmd, CommandBase* val);
+    void AddCommand(std::string cmd, std::unique_ptr<CommandBase> val);
 public:
     UciClient();
     ~UciClient();
