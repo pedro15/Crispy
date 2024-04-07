@@ -13,13 +13,26 @@
 
 UciClient::UciClient() 
 { 
-    m_commands = {  {"help", new HelpCommand(this)}, {"quit", new QuitCommand(this)}, {"version", new VersionCommand(this)},
-                    {"position", new PositionCommand(this)}, {"uci" , new UciCommand(this)}, {"isready", new IsReadyCommand(this)}, {"go", new GoCommand(this)},
-                    {"stop", new StopCommand(this) } };
+    // internal commands
+    AddCommand("help", new HelpCommand(this));
+    AddCommand("version", new VersionCommand(this));
+    // uci commands
+    AddCommand("uci", new UciCommand(this));
+    AddCommand("isready", new IsReadyCommand(this));
+    AddCommand("position", new PositionCommand(this));
+    AddCommand("go", new GoCommand(this));
+    AddCommand("stop", new StopCommand(this));
+    AddCommand("quit", new QuitCommand(this));
+
     m_isRunning = false;
     m_abort_requested = false;
 }
 UciClient::~UciClient(){ }
+
+void UciClient::AddCommand(std::string cmd, CommandBase* val)
+{
+    m_commands.emplace(std::make_pair(cmd, std::unique_ptr<CommandBase>(val)));
+}
 
 void UciClient::Run()
 {
