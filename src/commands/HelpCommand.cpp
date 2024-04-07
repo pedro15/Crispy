@@ -1,6 +1,7 @@
 #include "HelpCommand.h"
 
 HelpCommand::HelpCommand(UciClient* uci_client) : CommandBase(uci_client) { }
+HelpCommand::~HelpCommand(){ }
 
 void HelpCommand::Execute(const std::vector<std::string> params)
 {
@@ -8,4 +9,3 @@ void HelpCommand::Execute(const std::vector<std::string> params)
     std::cout << " please refer to HomePage (" << HOMEPAGE << ") for more details about available commands." << std::endl;
 }
 
-HelpCommand::~HelpCommand(){ }

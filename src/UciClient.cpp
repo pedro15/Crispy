@@ -6,12 +6,18 @@
 #include "commands/QuitCommand.h"
 #include "commands/VersionCommand.h"
 #include "commands/PositionCommand.h"
+#include "commands/UciCommand.h"
+#include "commands/IsReadyCommand.h"
+#include "commands/GoCommand.h"
+#include "commands/StopCommand.h"
 
 UciClient::UciClient() 
 { 
     m_commands = {  {"help", new HelpCommand(this)}, {"quit", new QuitCommand(this)}, {"version", new VersionCommand(this)},
-                    {"position", new PositionCommand(this)} };
+                    {"position", new PositionCommand(this)}, {"uci" , new UciCommand(this)}, {"isready", new IsReadyCommand(this)}, {"go", new GoCommand(this)},
+                    {"stop", new StopCommand(this) } };
     m_isRunning = false;
+    m_abort_requested = false;
 }
 UciClient::~UciClient(){ }
 
@@ -46,4 +52,14 @@ void UciClient::Stop()
 {
     if (!m_isRunning) return;
     m_isRunning = false;
+}
+
+void UciClient::AbortTask(bool abort)
+{
+    m_abort_requested = abort;
+}
+
+bool UciClient::IsAbortRequqested()
+{
+    return m_abort_requested;
 }

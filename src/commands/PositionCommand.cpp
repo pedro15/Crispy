@@ -1,6 +1,7 @@
 #include "PositionCommand.h"
 
 PositionCommand::PositionCommand(UciClient* uci_client) : CommandBase(uci_client) { }
+PositionCommand::~PositionCommand() { }
 
 void PositionCommand::Execute(const std::vector<std::string> params)
 {
@@ -16,4 +17,3 @@ void PositionCommand::Execute(const std::vector<std::string> params)
     }
 }
 
-PositionCommand::~PositionCommand() { }
