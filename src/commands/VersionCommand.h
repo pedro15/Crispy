@@ -1,3 +1,4 @@
+#pragma once
 #include "CommandBase.h"
 
 class VersionCommand : public CommandBase

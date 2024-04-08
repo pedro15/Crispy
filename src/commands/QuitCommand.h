@@ -1,3 +1,4 @@
+#pragma once
 #include "CommandBase.h"
 
 class QuitCommand : public CommandBase
