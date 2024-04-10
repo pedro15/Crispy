@@ -13,5 +13,5 @@ Square Bitboard::Current()
 
 bool Bitboard::MoveNext()
 {
-
+    return false;
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include <cstdint>
 
-constexpr std::string_view ENGINE_VERSION = "v0.3";
+constexpr std::string_view ENGINE_VERSION = "v-0.4";
 constexpr std::string_view HOMEPAGE = "https://github.com/pedro15/Crispy";
 constexpr std::string_view ENGINE_ANCII_ART = 
 "  __    ___    _   ___   ___  __ __    \n" 
