@@ -7,8 +7,8 @@ void PositionCommand::Execute(const std::vector<std::string> params)
 {
     auto begin = params.begin();
     auto end = params.end();
-    
-    if(std::find(begin, end, "fen") != end)
+
+    if(std::find(begin, end, "fen") != end || std::find(begin,end, "startpos") != end || std::find(begin,end, "kiwipete") != end)
     {
         std::cout << "fen is: '" << GetFEN(params) << "'" << std::endl;
     }else 
