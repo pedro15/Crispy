@@ -4,7 +4,7 @@
 #include "GoCommand.h"
 ThreadPool threads(1);
 
-GoCommand::GoCommand(UciClient* uci_client) : CommandBase(uci_client)
+GoCommand::GoCommand(std::shared_ptr<UciClient> uci_client) : CommandBase(uci_client)
 { 
     
 }

@@ -5,7 +5,7 @@
 #include "commands/CommandBase.h"
 
 class CommandBase;
-class UciClient
+class UciClient : public std::enable_shared_from_this<UciClient>
 {
 private:
     bool m_isRunning;
@@ -15,6 +15,7 @@ private:
 public:
     UciClient();
     ~UciClient();
+    void Init();
     void Run();
     void Stop();
     void AbortTask(bool abort);

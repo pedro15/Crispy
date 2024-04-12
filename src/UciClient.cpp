@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <memory>
 #include "UciClient.h"
 #include "commands/CommandBase.h"
 #include "commands/HelpCommand.h"
@@ -11,23 +12,26 @@
 #include "commands/GoCommand.h"
 #include "commands/StopCommand.h"
 
-UciClient::UciClient() 
-{ 
+UciClient::UciClient() { }
+UciClient::~UciClient(){ }
+
+void UciClient::Init()
+{
+    std::shared_ptr<UciClient> local_client = shared_from_this();
     // internal commands
-    AddCommand("help", std::make_unique<HelpCommand>(this));
-    AddCommand("version", std::make_unique<VersionCommand>(this));
+    AddCommand("help", std::make_unique<HelpCommand>(local_client));
+    AddCommand("version", std::make_unique<VersionCommand>(local_client));
     // uci commands
-    AddCommand("uci", std::make_unique<UciCommand>(this));
-    AddCommand("isready", std::make_unique<IsReadyCommand>(this));
-    AddCommand("position", std::make_unique<PositionCommand>(this));
-    AddCommand("go", std::make_unique<GoCommand>(this));
-    AddCommand("stop", std::make_unique<StopCommand>(this));
-    AddCommand("quit", std::make_unique<QuitCommand>(this));
+    AddCommand("uci", std::make_unique<UciCommand>(local_client));
+    AddCommand("isready", std::make_unique<IsReadyCommand>(local_client));
+    AddCommand("position", std::make_unique<PositionCommand>(local_client));
+    AddCommand("go", std::make_unique<GoCommand>(local_client));
+    AddCommand("stop", std::make_unique<StopCommand>(local_client));
+    AddCommand("quit", std::make_unique<QuitCommand>(local_client));
 
     m_isRunning = false;
     m_abort_requested = false;
 }
-UciClient::~UciClient(){ }
 
 void UciClient::AddCommand(std::string cmd, std::unique_ptr<CommandBase> val)
 {

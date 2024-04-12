@@ -1,6 +1,6 @@
 #include "HelpCommand.h"
 
-HelpCommand::HelpCommand(UciClient* uci_client) : CommandBase(uci_client) { }
+HelpCommand::HelpCommand(std::shared_ptr<UciClient> uci_client) : CommandBase(uci_client) { }
 HelpCommand::~HelpCommand(){ }
 
 void HelpCommand::Execute(const std::vector<std::string> params)

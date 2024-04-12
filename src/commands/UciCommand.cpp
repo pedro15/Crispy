@@ -1,7 +1,7 @@
 #include "UciCommand.h"
 #include "../Types.h"
 
-UciCommand::UciCommand(UciClient* uci_client) : CommandBase(uci_client) { }
+UciCommand::UciCommand(std::shared_ptr<UciClient> uci_client) : CommandBase(uci_client) { }
 UciCommand::~UciCommand() { }
 
 void UciCommand::Execute(const std::vector<std::string> params)

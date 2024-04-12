@@ -9,9 +9,9 @@ class UciClient;
 class CommandBase
 {
 protected:
-    UciClient* m_uci_client;
+    std::shared_ptr<UciClient> m_uci_client;
 public:
-    CommandBase(UciClient* uci_client);
+    CommandBase(std::shared_ptr<UciClient> uci_client);
     ~CommandBase();
     virtual void Execute(const std::vector<std::string> params);
 };
