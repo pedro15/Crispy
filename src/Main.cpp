@@ -2,16 +2,17 @@
 #include "Types.h"
 #include "UciClient.h"
 #include "Bitboard.h"
-#define C64(constantU64) constantU64##ULL
 
 int main(int count, char* values[])
 {
-    Bitboard bb = C64(0x104000280000001);
+    Bitboard bb = 0x8000000000000001ULL;
+
+    std::cout << bb.Str() << std::endl;
     
     while (bb)
     {
         Square curr = bb.PopSquare();
-        std::cout << curr << std::endl;
+        std::cout << curr.Str() << std::endl;
     }
 
     std::cout << ENGINE_ANCII_ART  << std::endl;
