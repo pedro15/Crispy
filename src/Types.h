@@ -79,16 +79,16 @@ struct Square
     {
         val = square_value;
     }
-    constexpr inline explicit Square(uint8_t square_value)
+    constexpr inline Square(uint8_t square_value)
     {
         val = static_cast<square_enum>(square_value);
     }
-    constexpr inline explicit Square(uint8_t file, uint8_t rank)
+    constexpr inline Square(uint8_t file, uint8_t rank)
     {
         val = static_cast<square_enum>(8 * rank + file);
     }
 
-    constexpr inline explicit operator uint8_t() const
+    constexpr inline operator uint8_t() const
     {
         return static_cast<uint8_t>(val);
     }
@@ -138,7 +138,7 @@ struct Piece
     {
         val = static_cast<piece_enum>(piece_value);
     }
-    constexpr inline explicit operator uint8_t() const 
+    constexpr inline operator uint8_t() const 
     {
         return static_cast<uint8_t>(val);
     }
@@ -174,7 +174,7 @@ struct Color
     {
         val = static_cast<color_enum>(color_value);
     }
-    constexpr inline explicit operator uint8_t() const 
+    constexpr inline operator uint8_t() const 
     {
         return static_cast<uint8_t>(val);
     }
