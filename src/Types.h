@@ -9,21 +9,6 @@ constexpr std::string_view ENGINE_ANCII_ART =
 "| |_   |   /  | | \\__ \\ |  _/  \\ /  \n"  
 " \\__|  |_|_\\  |_| (___/ |_|    |_|   \n";
 
-// default positions ---------------------------------
-
-constexpr std::string_view POSITION_STARTPOS_VIEW = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-static std::string GetFEN_StartPosition()
-{
-    return std::string(POSITION_STARTPOS_VIEW.begin(), POSITION_STARTPOS_VIEW.end());
-}
-
-constexpr std::string_view POSITION_KIWIPETE_VIEW = "r3k2r/p1ppqpb1/bn2pnp1/3PN3/1p2P3/2N2Q1p/PPPBBPPP/R3K2R w KQkq -";
-static std::string GetFEN_Kiwipete()
-{
-    return std::string(POSITION_KIWIPETE_VIEW.begin(), POSITION_KIWIPETE_VIEW.end());
-}
-
-
 // string representation -----------------------------
 
 constexpr std::string_view str_square[65] =

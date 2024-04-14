@@ -5,6 +5,7 @@
 #include "../UciClient.h"
 #include "../lib/strutil.h"
 #include "../Types.h"
+#include "../Notation.h"
 
 class UciClient;
 class CommandBase
@@ -46,16 +47,16 @@ static std::string GetFEN(const std::vector<std::string> params)
 			continue;
 		}else if (params[i] == "startpos")
 		{
-			return GetFEN_StartPosition();
+			return FEN_STARTPOS;
 		}else if (params[i] == "kiwipete")
 		{
-			return GetFEN_Kiwipete();
+			return FEN_KIWIPETE;
 		}
 		else if (params[i] == "moves")
 		{
 			break;
 		}
-
+		
 		result << params[i];
 		if (i < params.size() - 1 && params[i+1] != "moves")
 			result << " ";
