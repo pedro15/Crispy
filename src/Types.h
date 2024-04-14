@@ -40,14 +40,13 @@ constexpr std::string_view str_square[65] =
 
 constexpr std::string_view str_piece[8] = 
 {
-    "None",
-    "None",
     "Pawn", 
     "Knight",
     "Bishop",
     "Rook",
     "Queen",
-    "King"
+    "King",
+    "None"
 };
 
 constexpr std::string_view str_color[2] =
@@ -129,7 +128,7 @@ struct Piece
     };
 
     piece_enum val = Piece::None;
-    
+
     constexpr Piece() = default;
     constexpr inline Piece(piece_enum piece_value)
     {
