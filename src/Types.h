@@ -119,15 +119,16 @@ struct Piece
 {
     enum piece_enum : uint8_t
     {
-        None   = 0,
-        Pawn   = 2,
-        Knight = 3,
-        Bishop = 4,
-        Rook   = 5,
-        Queen  = 6,
-        King   = 7
+        Pawn   = 0,
+        Knight = 1,
+        Bishop = 2,
+        Rook   = 3,
+        Queen  = 4,
+        King   = 5,
+        None   = 6,
     };
-    piece_enum val = piece_enum::None;
+
+    piece_enum val = Piece::None;
     
     constexpr Piece() = default;
     constexpr inline Piece(piece_enum piece_value)

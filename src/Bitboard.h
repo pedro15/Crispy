@@ -16,24 +16,12 @@ struct Bitboard
         }
 
         // API
-
+        
         inline Square PopSquare()
         {
             Square sq = LSB();
             m_value &= m_value -1;
             return sq;
-        }
-
-        // Add the specified square to the bitboard
-        constexpr inline void AddSq(Square sq)
-        {
-            m_value |= 1ULL << sq;
-        }
-
-        // remove the specified square from the bitboard
-        constexpr inline void RemoveSq(Square sq)
-        {
-            m_value &= ~(1ULL << sq);
         }
 
         inline uint8_t Count() const 
@@ -100,16 +88,28 @@ struct Bitboard
             m_value |= bb;
         }
 
-        // negation (bitboard)
-        constexpr inline Bitboard operator -(const Bitboard& bb)
+        // Addition sq (Bitboard)
+        constexpr inline Bitboard operator +(const Square& sq)
         {
-            return m_value & ~bb;
+            return m_value | (1ULL << sq);
         }
 
-        // negation (local)
-        constexpr inline void operator -=(const Bitboard& bb)
+        // Addition sq (local)
+        constexpr inline void operator +=(const Square& sq)
         {
-            m_value &= ~bb;
+            m_value |= (1UL << sq);
+        }
+
+        // negation sq (bitboard)
+        constexpr inline Bitboard operator -(const Square& sq)
+        {
+            return m_value & ~(1ULL << sq);
+        }
+
+        // negation sq (local)
+        constexpr inline void operator -=(const Square& sq)
+        {
+            m_value &= ~(1ULL << sq);
         }
 
         // and (local)
@@ -141,7 +141,7 @@ struct Bitboard
         {
             return 1 & (m_value >> sq); 
         }
-
+        
         // binary operations
 
         constexpr inline Bitboard operator >>(const Bitboard& by) const 
