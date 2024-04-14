@@ -39,7 +39,7 @@ struct Bitboard
             return std::countl_zero(m_value);
         }
 
-        inline std::string Str()
+        inline std::string Str() const
         {
             std::stringstream stream;
             stream << "[bitboard] " << m_value;
@@ -164,3 +164,9 @@ struct Bitboard
             m_value <<= by;
         }
 };
+
+inline std::ostream& operator<<(std::ostream& os, const Bitboard& bb)
+{
+    os << bb.Str();
+    return os;
+}
