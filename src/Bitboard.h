@@ -14,9 +14,18 @@ struct Bitboard
         {
             m_value = bb_value;
         }
-
-        // API
         
+        // API
+        inline void SetBit(Square sq)
+        {
+            m_value |= (1ULL << sq);
+        }
+
+        inline void ClearBit(Square sq)
+        {
+            m_value &= ~(1ULL << sq);
+        }
+
         inline Square PopSquare()
         {
             Square sq = LSB();
@@ -86,30 +95,6 @@ struct Bitboard
         constexpr inline void operator |=(const Bitboard& bb) 
         {
             m_value |= bb;
-        }
-
-        // Addition sq (Bitboard)
-        constexpr inline Bitboard operator +(const Square& sq)
-        {
-            return m_value | (1ULL << sq);
-        }
-
-        // Addition sq (local)
-        constexpr inline void operator +=(const Square& sq)
-        {
-            m_value |= (1UL << sq);
-        }
-
-        // negation sq (bitboard)
-        constexpr inline Bitboard operator -(const Square& sq)
-        {
-            return m_value & ~(1ULL << sq);
-        }
-
-        // negation sq (local)
-        constexpr inline void operator -=(const Square& sq)
-        {
-            m_value &= ~(1ULL << sq);
         }
 
         // and (local)
