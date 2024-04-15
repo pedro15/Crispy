@@ -56,40 +56,41 @@ struct Square
         a8, b8, c8, d8, e8, f8, g8, h8, None
     };
 
-    square_enum val = square_enum::None;
+    private:
+        square_enum m_val = square_enum::None;
+        constexpr inline operator uint8_t() const
+        {
+            return static_cast<uint8_t>(m_val);
+        }
 
-    constexpr Square() = default;
-    constexpr inline Square(square_enum square_value)
-    {
-        val = square_value;
-    }
-    constexpr inline Square(uint8_t square_value)
-    {
-        val = static_cast<square_enum>(square_value);
-    }
-    constexpr inline Square(uint8_t file, uint8_t rank)
-    {
-        val = static_cast<square_enum>(8 * rank + file);
-    }
+    public:
+        constexpr Square() = default;
+        constexpr inline Square(square_enum square_value)
+        {
+            m_val = square_value;
+        }
+        constexpr inline Square(uint8_t square_value)
+        {
+            m_val = static_cast<square_enum>(square_value);
+        }
+        constexpr inline Square(uint8_t file, uint8_t rank)
+        {
+            m_val = static_cast<square_enum>(8 * rank + file);
+        }
 
-    constexpr inline operator uint8_t() const
-    {
-        return static_cast<uint8_t>(val);
-    }
+        constexpr inline uint8_t File()
+        {
+            return m_val & 7;
+        }
+        constexpr inline uint8_t Rank()
+        {
+            return m_val >> 3;
+        }
 
-    constexpr inline uint8_t File()
-    {
-        return val & 7;
-    }
-    constexpr inline uint8_t Rank()
-    {
-        return val >> 3;
-    }
-
-    inline std::string_view Str() const
-    {
-        return str_square[val];
-    }
+        inline std::string_view Str() const
+        {
+            return str_square[m_val];
+        }
 };
 
 inline std::ostream& operator<<(std::ostream& os, const Square& sq)
@@ -112,26 +113,27 @@ struct Piece
         None   = 6,
     };
 
-    piece_enum val = Piece::None;
+    private:
+        piece_enum m_val = Piece::None;
+        constexpr inline operator uint8_t() const 
+        {
+            return static_cast<uint8_t>(m_val);
+        }
 
-    constexpr Piece() = default;
-    constexpr inline Piece(piece_enum piece_value)
-    {
-        val = piece_value;
-    }
-    constexpr inline Piece(uint8_t piece_value)
-    {
-        val = static_cast<piece_enum>(piece_value);
-    }
-    constexpr inline operator uint8_t() const 
-    {
-        return static_cast<uint8_t>(val);
-    }
-
-    inline std::string_view Str() const
-    {
-        return str_piece[val];
-    }
+    public:
+        constexpr Piece() = default;
+        constexpr inline Piece(piece_enum piece_value)
+        {
+            m_val = piece_value;
+        }
+        constexpr inline Piece(uint8_t piece_value)
+        {
+            m_val = static_cast<piece_enum>(piece_value);
+        }
+        inline std::string_view Str() const
+        {
+            return str_piece[m_val];
+        }
 };
 
 inline std::ostream& operator<<(std::ostream& os, const Piece& piece)
@@ -148,29 +150,31 @@ struct Color
         Black = 0,
         White = 1
     };
-    color_enum val = color_enum::Black;
-    
-    constexpr Color() = default;
-    constexpr inline Color(color_enum color_value)
-    {
-        val = color_value;
-    }
-    constexpr inline Color(uint8_t color_value)
-    {
-        val = static_cast<color_enum>(color_value);
-    }
-    constexpr inline operator uint8_t() const 
-    {
-        return static_cast<uint8_t>(val);
-    }
-    constexpr inline Color Invert()
-    {
-        return static_cast<color_enum>(val ^ 1);
-    }
-    inline std::string_view Str() const
-    {
-        return str_color[val];
-    }
+
+    private:
+        color_enum m_val = color_enum::Black;
+        constexpr inline operator uint8_t() const 
+        {
+            return static_cast<uint8_t>(m_val);
+        }
+    public:
+        constexpr Color() = default;
+        constexpr inline Color(color_enum color_value)
+        {
+            m_val = color_value;
+        }
+        constexpr inline Color(uint8_t color_value)
+        {
+            m_val = static_cast<color_enum>(color_value);
+        }
+        inline std::string_view Str() const
+        {
+            return str_color[m_val];
+        }
+        constexpr inline Color Invert()
+        {
+            return static_cast<color_enum>(m_val ^ 1);
+        }
 };
 
 inline std::ostream& operator<<(std::ostream& os, const Color& color)
@@ -178,3 +182,73 @@ inline std::ostream& operator<<(std::ostream& os, const Color& color)
     os << color.Str();
     return os;
 }
+
+// Castle definition
+struct Castle
+{
+    enum castle_enum : uint8_t
+    {
+        None = 0,
+        White_king  = 1,
+        White_queen = 2,
+        Black_king  = 4,
+        Black_queen = 8
+    };
+
+    private:
+        castle_enum m_val = castle_enum::None;
+
+        constexpr inline operator uint8_t() const
+        {
+            return static_cast<uint8_t>(m_val);
+        }
+
+        constexpr inline bool operator ==(const Castle& ) const = default;
+
+        constexpr inline Castle operator ~() const 
+        {
+            return Castle(~m_val);
+        }
+
+        constexpr inline Castle operator |(Castle& castle_value) const
+        {
+            return static_cast<castle_enum>(static_cast<uint8_t>(m_val) | static_cast<uint8_t>(castle_value));
+        }
+
+        constexpr inline void operator |= (Castle& castle_value)
+        {
+            m_val = static_cast<castle_enum>(static_cast<uint8_t>(m_val) | static_cast<uint8_t>(castle_value));
+        }
+
+        constexpr inline Castle operator &(Castle& castle_value) const
+        {
+            return static_cast<castle_enum>(static_cast<uint8_t>(m_val) & static_cast<uint8_t>(castle_value));
+        }
+
+        constexpr inline void operator &=(Castle& castle_value)
+        {
+            m_val = static_cast<castle_enum>(static_cast<uint8_t>(m_val) & static_cast<uint8_t>(castle_value)); 
+        }
+
+        constexpr inline Castle operator ^(Castle& castle_value) const
+        {
+            return static_cast<castle_enum>(static_cast<uint8_t>(m_val) ^ static_cast<uint8_t>(castle_value));
+        }
+
+        constexpr inline void operator ^=(Castle& castle_value)
+        {
+            m_val = static_cast<castle_enum>(static_cast<uint8_t>(m_val) ^ static_cast<uint8_t>(castle_value));
+        }
+
+    public:
+        Castle() = default;
+        constexpr inline Castle(castle_enum castle_value)
+        {
+            m_val = castle_value;
+        }
+
+        constexpr inline Castle(uint8_t castle_value)
+        {
+            m_val = static_cast<castle_enum>(castle_value);
+        }
+};
