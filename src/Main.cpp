@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Types.h"
 #include "UciClient.h"
-#include "Bitboard.h"
 
 int main(int count, char* values[])
 {
