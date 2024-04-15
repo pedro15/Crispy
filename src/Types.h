@@ -189,10 +189,10 @@ struct Castle
     enum castle_enum : uint8_t
     {
         None = 0,
-        White_king  = 1,
-        White_queen = 2,
-        Black_king  = 4,
-        Black_queen = 8
+        White_King  = 1,
+        White_Queen = 2,
+        Black_King  = 4,
+        Black_Queen = 8
     };
 
     private:
