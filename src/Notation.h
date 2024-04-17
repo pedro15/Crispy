@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "BoardPosition.h"
 
 namespace notation
 {
@@ -35,5 +36,10 @@ namespace notation
         }
         return result.str();
     }
+    
+    inline static BoardPosition ParseFEN(const std::string fen)
+    {
 
+        return BoardPosition();
+    }
 }
