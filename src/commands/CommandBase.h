@@ -1,22 +1,9 @@
 #pragma once
+#include <algorithm>
+#include <vector>
 #include <string>
-#include <iostream>
-#include <sstream>
-#include "../UciClient.h"
-#include "../lib/strutil.h"
-#include "../Types.h"
-#include "../Notation.h"
 
-class UciClient;
-class CommandBase
-{
-protected:
-    std::shared_ptr<UciClient> m_uci_client;
-public:
-    CommandBase(std::shared_ptr<UciClient> _uci_client);
-    ~CommandBase();
-    virtual void Execute(const std::vector<std::string> _params);
-};
+#define COMMAND_FN std::function<void(const std::vector<std::string>,std::shared_ptr<UciClient>)>
 
 template<typename T> static T GetParamValue(const std::vector<std::string> _params, const std::string _token)
 { 
@@ -42,4 +29,15 @@ static bool HasParam(std::string _token, const std::vector<std::string> _params)
 	auto begin = _params.begin();
 	auto end = _params.end();
 	return std::find(begin,end, _token) != end;
+}
+
+static void PrintTestsResults(bool _success)
+{
+    if (_success)
+    {
+        std::cout << "[SUCCESS] test completed!" << std::endl;
+    }else
+    {
+        std::cout << "[ERROR] test failed with errors" << std::endl;
+    }
 }

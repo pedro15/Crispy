@@ -1,5 +1,6 @@
 #include <vector>
 #include <string>
+#include <iostream>
 
 const std::vector<std::string> fen_suite = 
 {
